@@ -10,17 +10,13 @@ import Router from "./routes/route.js";
 dotenv.config();
 
 const app = express();
-// Replace with your allowed origins in production
-const corsOptions = {
-  origin: ["http://localhost:3000"], // You might want to restrict this later on
-};
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", Router);
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3000;
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
